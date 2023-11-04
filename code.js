@@ -1,4 +1,1 @@
-alert('hello there!')
-var1 = prompt('how are you?')
-var2 = prompt("what's your name?")
-alert('so, your name is ' + var2 + ' and you are ' + var1)
+alert('this site isnt done so enjoy the text saying hi in comic sans MS :D')
