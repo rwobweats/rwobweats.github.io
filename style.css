@@ -1,19 +1,28 @@
 body {
     background-color: rgb(0, 30, 40);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Kalnia', serif;
 }
 
 h1 {
     color:rgb(255, 255, 255);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Kalnia', serif;
 }
 
 h2 {
     color: rgb(255, 255, 255);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Kalnia', serif;
 }
 
 h3 {
     color:rgb(255, 255, 255);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Kalnia', serif;
 }
 
 a {
     color:rgb(19, 0, 187)
 }
+
