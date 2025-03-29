@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rwobweats</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./languageSelectionScript.js"></script>
 </head>
 <body>
-    <h1>Hello!</h1>
-    <h3>My name is Rwobweats (or Rwob for short)! I am a beginner in HTML and in coding in general. I really like playing country quizzes like <a href="https://www.geoguessr.com/quiz/seterra">Seterra</a>. I'm also a Roblox speedrunner.</h3>
+    <h1 id="greeting">Hello!</h1>
+    <h3 id="intro">My name is Rwobweats (or Rwob for short)! I am a beginner in HTML and in coding in general. I really like playing country quizzes like <a href="https://www.geoguessr.com/quiz/seterra">Seterra</a>. I'm also a Roblox speedrunner.</h3>
     <div class="the useless stuff that no one will read">
-        <h6>By the way, this website was intended to be seen on a computer, but it also works on mobile.</h6>
-        <h6>And also, this page is open-source! Click <a href="https://github.com/rwobweats/rwobweats.github.io">here</a> to view the code of the site.</h6>
+        <h6 id="note1">By the way, this website was intended to be seen on a computer, but it also works on mobile.</h6>
+        <h6 id="note2">And also, this page is open-source! Click <a href="https://github.com/rwobweats/rwobweats.github.io">here</a> to view the code of the site.</h6>
     </div>
+  <div class="dropdown">
+    <button class="dropdown-button">English</button>
+    <div class="dropdown-content">
+      <a href="#" onclick="changeLanguage('en'); return false">English (default)</a>
+      <a href="#" onclick="changeLanguage('fr'); return false">Français</a>
+    </div>
+  </div>
 </body>
 </html>
+
+
