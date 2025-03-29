@@ -62,13 +62,12 @@
   }
 
   .dropdown {
-    position: fixed; /* Fix the dropdown to the viewport */
-    bottom: 20px; /* Distance from the bottom of the page */
+    position: fixed;
+    bottom: 20px;
     right: 20px;
     display: inline-block;
   }
 
-  /* Dropdown button */
   .dropdown-button {
     background-color: rgb(0, 24, 32);
     color: white;
@@ -78,7 +77,6 @@
     cursor: pointer;
   }
 
-  /* Dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -91,7 +89,6 @@
 
   }
 
-  /* Links inside the dropdown */
   .dropdown-content a {
     color: rgb(255, 255, 255);
     padding: 12px 16px;
@@ -100,14 +97,12 @@
     border-bottom: 1px solid rgb(0, 24, 32);
   }
   
-  /* Change link background on hover */
   .dropdown-content a:hover {
     background-color: #f1f1f1;
     color: black;
     border-bottom: 1px solid;
   }
 
-  /* Show dropdown content on hover */
   .dropdown:hover .dropdown-content {
     display: block;
   }
