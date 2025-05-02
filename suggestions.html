@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%; /* Adjust width to fit the design */
+            max-width: 400px; /* Limit the maximum width */
+            border: 1px solid #30363d; /* Subtle border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #161b22; /* Darker input background */
+            color: #c9d1d9; /* Light text color */
+        }
+
+        input::placeholder {
+            color: #8b949e; /* Subtle placeholder color */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #238636; /* Green button */
+            color: #ffffff; /* White text */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2ea043; /* Slightly lighter green on hover */
+        }
+
+        button:active {
+            background-color: #1f6f2e; /* Darker green when clicked */
+        }
+    </style>
+</head>
+<body>
+    <h1>Suggestions</h1>
+    <h3>This page lets you directly send the developper of this website a suggestion</h3>
+    <input type="text" id="messageInput" placeholder="Type your message here..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            // Base64-encoded webhook URL
+            const encodedWebhookURL = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTM2Nzg1Njk0MjAzMDEyNzEyNC9UVE5Ja0tpdEN6WG5ZdlVNQkMxSmxSbl96dnJXbFhpelplSnhJWUZrQXRNRWNZZUo2WlUxTW8zM051VUw3Z0gya01tZA==";
+    
+            // Decode the Base64 string
+            const webhookURL = atob(encodedWebhookURL);
+    
+            const message = document.getElementById("messageInput").value;
+    
+            // Check if the message contains a link
+            const linkRegex = /(https?:\/\/[^\s]+)/g; // Matches URLs starting with http:// or https://
+            if (linkRegex.test(message)) {
+                alert("Links are not allowed!");
+                return;
+            }
+    
+            if (!message) {
+                alert("Please enter a message!");
+                return;
+            }
+    
+            // Send the message to the Discord webhook
+            fetch(webhookURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: message
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Message sent successfully!");
+                    document.getElementById("messageInput").value = ""; // Clear the textbox
+                } else {
+                    alert("Failed to send message. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while sending the message.");
+            });
+        }
+    </script>
+</body>
+</html>
